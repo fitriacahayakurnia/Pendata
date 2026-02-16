@@ -1,4 +1,4 @@
-# Data Prepration
+# Data Preparation
 
 Tahap Data Preparation merupakan salah satu tahapan penting dalam metodologi CRISP-DM yang dilakukan setelah Data Understanding. Pada tahap ini, data yang telah dipahami karakteristiknya kemudian dipersiapkan agar siap digunakan pada tahap pemodelan (modeling).
 Data yang diperoleh dari berbagai sumber biasanya masih dalam kondisi mentah dan belum siap untuk langsung dianalisis. Oleh karena itu, tahap Data Preparation dilakukan untuk memperbaiki dan menyiapkan data agar lebih rapi dan berkualitas, sehingga proses analisis dan pemodelan dapat berjalan dengan baik dan menghasilkan hasil yang lebih akurat.
