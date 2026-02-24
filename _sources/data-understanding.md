@@ -1,4 +1,4 @@
-# DATA UNDERSTANDING
+# Data Understanding
 
 ### 1. Sumber Data
 
