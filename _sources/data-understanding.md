@@ -1,18 +1,20 @@
-# Data Understanding
+# DATA UNDERSTANDING
 
-Dataset yang digunakan adalah Iris Flower Dataset yang berisi data pengukuran morfologi bunga iris. Dataset ini umum digunakan dalam penelitian klasifikasi karena memiliki struktur sederhana, data bersih, dan kelas yang jelas.
+### 1. Sumber Data
 
-### 1. Referensi Data
-
-Data diperoleh dari platform Kaggle dengan nama Iris Flower Dataset (https://www.kaggle.com/datasets/arshid/iris-flower-dataset?resource=download). Dataset ini merupakan dataset klasik dalam bidang data mining dan machine learning yang berisi data pengukuran bunga iris dari tiga spesies berbeda, yaitu Setosa, Versicolor, dan Virginica. Dataset ini digunakan sebagai studi kasus untuk penerapan metode klasifikasi dalam penambangan data.
+Dataset yang digunakan adalah Iris Flower Dataset yang diperoleh dari platform Kaggle. Dataset ini merupakan dataset klasik dalam bidang data mining dan machine learning yang berisi data pengukuran bunga iris dari tiga spesies berbeda, yaitu Setosa, Versicolor, dan Virginica. Dataset ini digunakan sebagai studi kasus untuk penerapan metode klasifikasi dalam penambangan data.
+Berikut link dari dataset
+[Dataset Iris](https://www.kaggle.com/datasets/arshid/iris-flower-dataset?resource=download)
 
 ### 2. Deskripsi Dataset
 
-Dataset terdiri dari 150 baris data, di mana setiap baris merepresentasikan satu sampel bunga iris. Selain itu, terdapat 5 atribut, yang terdiri dari 4 atribut fitur san 1 atribut targer. Dataset ini digunakan untuk mengklasifikasikan bunga iris ke dalam tiga spesies berdasarkan ukuran bagian bunganya.
+Dataset yang digunakan dalam penelitian ini adalah Iris Flower Dataset yang terdiri dari 150 data dengan 5 atribut. Dataset ini digunakan untuk mengklasifikasikan bunga iris ke dalam tiga spesies berdasarkan ukuran bagian bunganya.
 
 ### 3. Eksplorasi Dataset
 
 Dalam proses mengidentifikasi dataset ini, python membantu untuk mempermudah pengidentifikasiannya.
+
+#### Eksplorasi Dataset dengan menggunakan Python:
 
 ##### - Upload file CSV
 
@@ -146,27 +148,44 @@ Berdasarkan histogram, dapat disimpulkan bahwa seluruh fitur numerik memiliki di
 
 Berdasarkan boxplot, dapat disimpulkan bahwa setiap fitur memiliki penyebaran data yang berbeda. Fitur sepal_width menunjukkan adanya beberapa outlier, sedangkan fitur lainnya memiliki distribusi yang relatif normal tanpa outlier yang signifikan. Fitur petal_length dan petal_width memiliki variasi data yang cukup besar, sehingga berpotensi menjadi fitur penting dalam membedakan species pada tahap modeling. Visualisasi boxplot ini membantu dalam memahami distribusi data dan mendeteksi outlier pada tahap Data Understanding dalam metodologi CRISP-DM.
 
-#### Deskripsi Atribut
+#### - Analisa Korelasi
 
-| Atribut | Deskripsi | Tipe Data |
-| :-- | :-- | :-- |
-| sepal_length | Panjang sepal dalam cm | Float |
-| sepal_width | Lebar sepal dalam cm | Float |
-| petal_length | Panjang petal dalam cm | Float |
-| petal_width | Lebar petal dalam cm | Float |
-| species | Jenis spesies iris | Kategorikal |
+- Analisis korelasi sepal length dan sepal width:
 
-## Statistik Deskriptif Awal
+![original image](https://cdn.mathpix.com/snip/images/sRKmyd2sVULbo8caUWfLT9eqt_lCk_W0yBKY_EifcEA.original.fullsize.png)
 
-Berdasarkan eksplorasi awal, diperoleh gambaran umum sebagai berikut:
+Analisis korelasi juga dilakukan pada atribut sepal length dan sepal width menggunakan scatter plot dengan bantuan Python. Berdasarkan hasil visualisasi, terlihat bahwa sebaran data tidak membentuk pola yang jelas, yang menunjukkan bahwa hubungan antara kedua atribut tersebut relatif lemah dibandingkan dengan atribut pada bagian petal.
 
-1. Nilai pada atribut pengukuran berada dalam rentang yang wajar dan konsisten.
-2. Rata-rata panjang dan lebar petal menunjukkan perbedaan yang cukup jelas antar spesies.
-3. Sebaran data relatif seimbang antar kelas, sehingga dataset tidak mengalami masalah ketidakseimbangan kelas yang signifikan.
+- Analisis korelasi petal length dan petal width
 
-Statistik deskriptif ini memberikan indikasi bahwa data memiliki pola yang memungkinkan untuk proses klasifikasi.
+![original image](https://cdn.mathpix.com/snip/images/8bCKkvYBfRcBPq1RZkXrOMc8sxvl-fqDQ-RhbE9lwRo.original.fullsize.png)
 
-## Pengecekan Data Duplikat
+Analisis korelasi dilakukan secara visual menggunakan scatter plot dengan bantuan bahasa pemrograman Python. Scatter plot digunakan untuk melihat hubungan antara atribut petal length dan petal width. Berdasarkan hasil visualisasi, terlihat bahwa titik-titik data membentuk pola yang jelas, yang menunjukkan adanya hubungan atau korelasi yang kuat antara kedua atribut tersebut.
 
-Hasil pemeriksaan menunjukkan bahwa tidak terdapat data duplikat pada dataset. Setiap baris data merepresentasikan sampel bunga yang unik. Kondisi ini menunjukkan bahwa dataset memiliki kualitas yang baik dan dapat langsung digunakan pada tahap persiapan data tanpa proses penghapusan duplikasi.
+### Eksplorasi Dataset dengan menggunakan Aplikasi Orange:
 
+##### - Statistik Deskriptif
+
+Statistik deskriptif digunakan untuk memahami karakteristik dasar dataset Iris Flower. Analisis ini dilakukan menggunakan Column Statistics pada aplikasi Orange Data Mining. Hasil statistik deskriptif menunjukkan nilai minimum, maksimum, rata-rata, dan standar deviasi dari setiap atribut, sehingga memberikan gambaran umum mengenai sebaran dan variasi data.
+
+Berikut contoh statistik deskriptifnya:
+
+![original image](https://cdn.mathpix.com/snip/images/1QfYry6Ge2WhH-6mPvVdIRTrstVxnt-bPx3SCKn8EtY.original.fullsize.png)
+
+##### - Analisa kolerasi
+
+Analisis korelasi antar atribut dilakukan secara visual menggunakan widget Scatter Plot pada aplikasi Orange Data Mining. Scatter Plot digunakan untuk melihat hubungan antara dua atribut numerik berdasarkan pola sebaran data. Berdasarkan hasil visualisasi, terlihat bahwa beberapa atribut, khususnya pada bagian petal, memiliki hubungan yang kuat, sedangkan atribut lainnya menunjukkan hubungan yang lebih lemah. Analisis ini membantu dalam memahami keterkaitan antar atribut sebelum masuk ke tahap pemodelan.
+
+##### Berikut contoh Analisa Kolerasinya:
+
+- Analisis korelasi sepal length dan sepal width:
+
+![original image](https://cdn.mathpix.com/snip/images/iaM0IQD8x8ELhZrhLL7d07iobX8siwpqS55Ud7nF7uA.original.fullsize.png)
+
+Berdasarkan hasil visualisasi scatter plot antara sepal length dan sepal width, terlihat bahwa titik-titik data tersebar secara acak dan tidak membentuk pola linear yang jelas. Hal ini menunjukkan bahwa hubungan antara kedua atribut tersebut relatif lemah. Dengan kata lain, perubahan nilai sepal length tidak secara konsisten diikuti oleh perubahan sepal width.
+
+- Analisis korelasi petal length dan petal width
+
+![original image](https://cdn.mathpix.com/snip/images/iT4Xj8fRcAwT4AI_oDVDJKNmDaNI3cv0BFxkJoB2VBw.original.fullsize.png)
+
+Berbeda dengan atribut sepal, scatter plot antara petal length dan petal width menunjukkan pola sebaran yang lebih teratur dan cenderung membentuk hubungan linear positif. Titik-titik data terlihat mengikuti arah tertentu, yang menandakan adanya korelasi yang kuat antara kedua atribut petal tersebut.
