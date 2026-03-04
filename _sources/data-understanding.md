@@ -189,3 +189,292 @@ Berdasarkan hasil visualisasi scatter plot antara sepal length dan sepal width, 
 ![original image](https://cdn.mathpix.com/snip/images/iT4Xj8fRcAwT4AI_oDVDJKNmDaNI3cv0BFxkJoB2VBw.original.fullsize.png)
 
 Berbeda dengan atribut sepal, scatter plot antara petal length dan petal width menunjukkan pola sebaran yang lebih teratur dan cenderung membentuk hubungan linear positif. Titik-titik data terlihat mengikuti arah tertentu, yang menandakan adanya korelasi yang kuat antara kedua atribut petal tersebut.
+
+### 6. Pengukuran Jarak 
+##### Similarity
+
+Similarity adalah ukuran numerik yang menunjukkan tingkat kemiripan antara dua objek berdasarkan fitur yang mereka miliki. Secara umum, nilai similarity biasanya berada di rentang 0 sampai 1
+
+- 0 -> tidak mirip sama sekali
+- 1 -> sangat mirip / identik
+
+Semakin besar nilainya → semakin mirip.
+
+##### Dissimilarity
+Dissimilarity adalah ukuran numerik yang menunjukkan seberapa berbeda dua objek/data.
+- Semakin besar nilai dissimilarity -> semakin berbeda kedua objek tersebut.
+- Semakin kecil nilainya -> semakin mirip.
+  
+Dalam data numerik, dissimilarity biasanya direpresentasikan dalam bentuk distance (jarak) di dalam ruang fitur (feature space). Secara umum dapat ditulis sebagai: $$
+d(x,y)
+$$ yang berarti jarak antara objek 𝑥 dan 𝑦. 
+
+Untuk data bertipe numerik (misalnya tinggi, berat, nilai, umur), dissimilarity dihitung menggunakan metode berbasis jarak matematis.
+Tiga metode yang paling umum digunakan adalah:
+
+1. Minkowski Distance
+
+Minkowski Distance adalah bentuk umum dari pengukuran jarak dalam ruang berdimensi. Rumusnya:
+   \[
+d(2,1) = \sqrt{(1{,}9 - 5{,}1)^2 + (3{,}3 - 3{,}5)^2 + (1{,}4 - 1{,}4)^2 + (0{,}2 - 0{,}2)^2}
+\]
+
+\[
+= \sqrt{0{,}04 + 0{,}04 + 0 + 0{,}25}
+\]
+
+\[
+= 0{,}538
+\]
+
+\[
+d(3,1) = \sqrt{(4{,}7 - 5{,}1)^2 + (3{,}2 - 3{,}5)^2 + (1{,}3 - 1{,}4)^2 + (0{,}2 - 0{,}2)^2}
+\]
+
+\[
+= \sqrt{0{,}16 + 0{,}09 + 0{,}01 + 0}
+\]
+
+\[
+= 0{,}50990
+\]
+Keterangan:
+
+𝑥𝑖 dan 𝑦𝑖 = nilai atribut ke-i
+
+𝑝 = parameter yang menentukan jenis jarak
+
+𝑛 = jumlah atribut
+
+Minkowski disebut sebagai bentuk umum karena ketika nilai p diubah, maka akan menghasilkan metode jarak yang berbeda.
+
+2. Manhattan Distance
+
+Manhattan Distance adalah metode pengukuran jarak yang digunakan untuk menghitung tingkat perbedaan (dissimilarity) antara dua objek dengan menjumlahkan selisih absolut dari setiap atributnya.
+Metode ini menghitung jarak berdasarkan jalur horizontal dan vertikal (seperti pola jalan berbentuk grid), bukan garis lurus. Semakin besar nilai Manhattan Distance, maka semakin besar perbedaan antar objek. Nilai minimum jaraknya adalah 0, yang menunjukkan bahwa dua objek identik.
+
+$$d(i,j) = {|x_{i1} - x_{j1}|+| x_{i2} - x_{j2}|^2 + \ldots + |x_{ip} - x_{jp}|}$$
+
+3. Euclidean Distance
+
+Euclidean Distance merupakan salah satu metode pengukuran jarak yang termasuk dalam kategori dissimilarity, karena metode ini mengukur tingkat perbedaan antara dua objek berdasarkan nilai atribut numeriknya. Semakin besar hasil perhitungan Euclidean Distance, maka semakin besar perbedaan (dissimilarity) antara dua objek tersebut. Sebaliknya, jika hasilnya mendekati 0, maka kedua objek semakin mirip.
+
+$$d(i,j) = \sqrt{(x_{i1} - x_{j1}|^2 +| x_{i2} - x_{j2}|^2 + \ldots + |x_{ip} - x_{jp}|^2})$$
+
+
+   
+Jaccard Dissimilarity adalah ukuran untuk menghitung tingkat perbedaan antara dua objek pada data biner (0 dan 1) yang bersifat tidak simetris.
+Tidak simetris artinya:
+
+- Nilai 1 (kehadiran / ya) lebih penting.
+- Nilai 0 (ketidakhadiran / tidak) tidak dianggap penting.
+- Pasangan 0–0 diabaikan.
+
+Metode ini banyak digunakan dalam:
+
+- Market basket analysis.
+- Data transaksi.
+- Clustering data biner.
+- Analisis kemunculan fitur.
+
+
+### 7. Pengukuran Jarak pada Dataset Iris Flowers
+Mengukur jarak dataset Iris
+Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance
+##### Perhitungan manual 
+Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
+\[
+d(2,1) = \sqrt{(|4{,}9 - 5{,}1|^2 + |3 - 3{,}5|^2 + |1{,}4 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
+\]
+\[
+= \sqrt{0{,}04 + 0{,}25}
+\]
+\[
+= 0{,}538
+\]
+\[
+d(3,1) = \sqrt{(|4{,}7 - 5{,}1|^2 + |3{,}2 - 3{,}5|^2 + |1{,}3 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
+\]
+
+\[
+= \sqrt{0{,}16 + 0{,}09 + 0{,}01 + 0}
+\]
+
+\[
+= 0{,}50990
+\]
+##### Perhitungan Python
+Kita juga dapat menggunakan tools seperti python untuk mempermudah perhitungan ini
+```
+from scipy.spatial.distance import pdist, squareform
+
+X = df.select_dtypes(include=['float64', 'int64'])
+dist = pdist(X, metric='euclidean')
+distance_matrix = squareform(dist)
+
+distance_df = pd.DataFrame(distance_matrix)
+print(distance_df.iloc[:5, :5])
+```
+
+Terdapat tambahan library yang digunakan yaitu library scipy untuk mempermudah kita menghitung Euclidean Distance tanpa perlu coding manual. Selanjutnya data ditampilkan hanya sebesar 5x5 dihitung dari yang pertama
+
+Output yang dihasilkan:
+|   | 0        | 1        | 2        | 3        | 4        |
+|---|----------|----------|----------|----------|----------|
+| 0 | 0.000000 | 0.538516 | 0.509902 | 0.648074 | 0.141421 |
+| 1 | 0.538516 | 0.000000 | 0.300000 | 0.331662 | 0.608276 |
+| 2 | 0.509902 | 0.300000 | 0.000000 | 0.244949 | 0.509902 |
+| 3 | 0.648074 | 0.331662 | 0.244949 | 0.000000 | 0.648074 |
+| 4 | 0.141421 | 0.608276 | 0.509902 | 0.648074 | 0.000000 |
+
+##### Perhitungan Orange
+![original image](https://cdn.mathpix.com/snip/images/9PGgc7ny0uksXf9OeJWUUqJ1W74_wYqqPmGLGPGhBL8.original.fullsize.png)
+3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut
+
+#### Mengukur jarak dataset Tipe data campuran
+Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower 
+
+#### Perhitungan manual
+
+Contoh perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 4:
+
+###### 1. Hitung Nominal pada baris 1 dan 2
+
+Jika nilai nya sama -> 0
+Jika nilai nya beda -> 1
+
+
+| Fitur | Nilai |
+| :-- | :-- |
+| sex | 0 |
+| fjob | 1 |
+| activities | 0 |
+| schoolsup | 1 |
+
+Hasil akhir = 0+1+0+1 = 2
+
+###### 2. Hitung Numerik pada baris 1 dan 2
+
+Nilai numerik berada pada fitur Age
+Nilai minimal = 15
+Nilai maksimal = 22
+rumusnya:
+
+$$
+d_{ij}^{(f)} =
+\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}
+$$
+
+$$
+d_{1,2}^{(f)} =
+\frac{|18 - 17|}{22 - 15}
+$$
+
+$$
+= \frac{1}{7} = 0,143
+$$
+
+Hasil akhir = 0,143
+
+###### 3. Hitung Ordinal pada baris 1 dan 2
+
+Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
+Rumusnya:
+
+$$
+z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}
+$$
+
+Hitung dari data baris 1:
+
+$$
+z_{1} = \frac{4 - 0}{4 - 0}
+$$
+
+$$
+= \frac{4}{4} = 1
+$$
+
+Hitung dari data baris 2:
+
+$$
+z_{1} = \frac{1 - 0}{4 - 0}
+$$
+
+$$
+= \frac{1}{4} = 0,25
+$$
+
+Hasil akhir: |1 - 0.25| = 0.75
+
+Lakukan hal yang sama untuk tipe data fedu
+Hasil akhir: 0,75
+
+###### 3. Hasil Akhir nilai gower baris 1 dan 2
+
+Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki
+
+$$
+= \frac{2 + 0,143 + 0,75 + 0,75}{7} = 0,520
+$$
+    
+##### Perhitungan Python
+
+```
+import numpy as np
+
+data = df.copy()
+n = data.shape[0]
+
+numeric_cols = data.select_dtypes(include=[np.number]).columns
+categorical_cols = data.select_dtypes(exclude=[np.number]).columns
+
+for col in numeric_cols:
+   min_val = data[col].min()
+   max_val = data[col].max()
+   
+   if max_val != min_val:
+       data[col] = (data[col] - min_val) / (max_val - min_val)
+   else:
+       data[col] = 0
+
+dist_matrix = np.zeros((n, n))
+
+for i in range(n):
+   for j in range(n):
+       total_dist = 0
+       valid_features = 0
+       
+       for col in data.columns:
+           xi = data.iloc[i][col]
+           xj = data.iloc[j][col]
+           
+           if pd.isna(xi) or pd.isna(xj):
+               continue
+           
+           if col in numeric_cols:
+               d = abs(xi - xj)
+
+           else:
+               d = 0 if xi == xj else 1
+           
+           total_dist += d
+           valid_features += 1
+       
+       dist_matrix[i, j] = total_dist / valid_features
+distance_df = pd.DataFrame(dist_matrix)
+
+print(distance_df.iloc[:5, :5])
+```
+
+Berikut adalah code yang digunakan untuk menghitung gower distance
+
+
+|  | 0 | 1 | 2 | 3 | 4 |
+| :-- | :-- | :-- | :-- | :-- | :-- |
+| 0 | 0.000000 | 0.520408 | 0.418367 | 0.561224 | 0.397959 |
+| 1 | 0.520408 | 0.000000 | 0.183673 | 0.469388 | 0.163265 |
+| 2 | 0.418367 | 0.183673 | 0.000000 | 0.571429 | 0.306122 |
+| 3 | 0.561224 | 0.469388 | 0.571429 | 0.000000 | 0.377551 |
+| 4 | 0.397959 | 0.163265 | 0.306122 | 0.377551 | 0.000000 |
+
