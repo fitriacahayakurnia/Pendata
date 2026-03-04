@@ -215,7 +215,7 @@ Tiga metode yang paling umum digunakan adalah:
 1. Minkowski Distance
 
 Minkowski Distance adalah bentuk umum dari pengukuran jarak dalam ruang berdimensi. Rumusnya:
-   \[
+  $$\[
 d(2,1) = \sqrt{(1{,}9 - 5{,}1)^2 + (3{,}3 - 3{,}5)^2 + (1{,}4 - 1{,}4)^2 + (0{,}2 - 0{,}2)^2}
 \]
 
@@ -237,7 +237,7 @@ d(3,1) = \sqrt{(4{,}7 - 5{,}1)^2 + (3{,}2 - 3{,}5)^2 + (1{,}3 - 1{,}4)^2 + (0{,}
 
 \[
 = 0{,}50990
-\]
+\]$$
 Keterangan:
 
 𝑥𝑖 dan 𝑦𝑖 = nilai atribut ke-i
@@ -283,7 +283,7 @@ Mengukur jarak dataset Iris
 Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance
 ##### Perhitungan manual 
 Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
-\[
+$$\[
 d(2,1) = \sqrt{(|4{,}9 - 5{,}1|^2 + |3 - 3{,}5|^2 + |1{,}4 - 1{,}4|^2 + |0{,}2 - 0{,}2|^2)}
 \]
 \[
@@ -302,7 +302,7 @@ d(3,1) = \sqrt{(|4{,}7 - 5{,}1|^2 + |3{,}2 - 3{,}5|^2 + |1{,}3 - 1{,}4|^2 + |0{,
 
 \[
 = 0{,}50990
-\]
+\]$$
 ##### Perhitungan Python
 Kita juga dapat menggunakan tools seperti python untuk mempermudah perhitungan ini
 ```
