@@ -319,150 +319,138 @@ Output yang dihasilkan:
 ![original image](https://cdn.mathpix.com/snip/images/9PGgc7ny0uksXf9OeJWUUqJ1W74_wYqqPmGLGPGhBL8.original.fullsize.png)
 3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut
 
-#### Mengukur jarak dataset Tipe data campuran
+#### 2). Mengukur jarak dataset Tipe data campuran
 Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower 
 
-#### Perhitungan manual
+#### Perhitungan
+Perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 3: Untuk menghitung jarak pada data campuran, kita perlu menghitungnya pada masing-masing tipe data yang kemudian hasil akhirnya dijumlahkan.
 
-Contoh perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 4:
+1. Ordinal dan Numerik Pada kolom parental level of education merupakan fitur dengan tipe ordinal. Pada tipe data ordinal ini sebelum dapat menghitung jarak pada baris 1 dan 2, lalu baris 1 dan 3 perlu melakukan normalisasi, yang setelah dinormalisasi nanti dapat dihitung jaraknya dengan tipe data numerik menggunakan metode Eucledien Distance.
+- Some high school = 1
+- High school = 2
+- Some collage = 3
+- Associate’s degree = 4
+- Bachelor’s degree = 5
+- Master’s degree = 6
 
-###### 1. Hitung Nominal pada baris 1 dan 2
+Proses Normalisasi pada tiap tingkatan:
+Normalisasi = r - min / max - min
 
-Jika nilai nya sama -> 0
-Jika nilai nya beda -> 1
+\[
+1 = \frac{1-1}{6-1} = \frac{0}{5} = 0
+\]
 
+\[
+2 = \frac{2-1}{6-1} = \frac{1}{5} = 0.2
+\]
 
-| Fitur | Nilai |
-| :-- | :-- |
-| sex | 0 |
-| fjob | 1 |
-| activities | 0 |
-| schoolsup | 1 |
+\[
+3 = \frac{3-1}{6-1} = \frac{2}{5} = 0.4
+\]
 
-Hasil akhir = 0+1+0+1 = 2
+\[
+4 = \frac{4-1}{6-1} = \frac{3}{5} = 0.6
+\]
 
-###### 2. Hitung Numerik pada baris 1 dan 2
+\[
+5 = \frac{5-1}{6-1} = \frac{4}{5} = 0.8
+\]
 
-Nilai numerik berada pada fitur Age
-Nilai minimal = 15
-Nilai maksimal = 22
-rumusnya:
+\[
+6 = \frac{6-1}{6-1} = \frac{5}{5} = 1
+\]
+Setelah dilakukan normalisasi pada tipe data ordinal, selanjutnya ada proses perhitungan menggunakan metode Eucledien Distance, yang dihitung dengan tipe data numerik yaitu pada kolom Math Score, Reading Score dan Writing Score.
 
-$$
-d_{ij}^{(f)} =
-\frac{|x_{if} - x_{jf}|}{\max(x_f) - \min(x_f)}
-$$
-
-$$
-d_{1,2}^{(f)} =
-\frac{|18 - 17|}{22 - 15}
-$$
-
-$$
-= \frac{1}{7} = 0,143
-$$
-
-Hasil akhir = 0,143
-
-###### 3. Hitung Ordinal pada baris 1 dan 2
-
-Ketahui terlebih dahulu terdapat kategori apa saja di dalam nya. Pada kasus ini terdapat 5 kategori
-Rumusnya:
-
-$$
-z_{if} = \frac{r_{if} - \min(r_f)}{\max(r_f) - \min(r_f)}
-$$
-
-Hitung dari data baris 1:
+| Parental Level of Education | Math Score | Reading Score | Writing Score |
+|-----------------------------|------------|---------------|---------------|
+| 0.6                         | 72         | 72            | 74            |
+| 0.4                         | 69         | 90            | 88            |
+| 1                           | 90         | 95            | 93            |
+| 0.6                         | 47         | 57            | 44            |
 
 $$
-z_{1} = \frac{4 - 0}{4 - 0}
+\begin{aligned}
+d(1,2) &= \sqrt{(0.6-0.4)^2 + (72-69)^2 + (72-90)^2 + (74-88)^2} \\
+       &= \sqrt{0.04 + 9 + 324 + 196} \\
+       &= \sqrt{529.04} \\
+       &= 23.00086
+\end{aligned}
 $$
 
 $$
-= \frac{4}{4} = 1
+\begin{aligned}
+d(1,3) &= \sqrt{(0.6-1)^2 + (72-90)^2 + (72-95)^2 + (74-93)^2} \\
+       &= \sqrt{0.16 + 324 + 529 + 361} \\
+       &= \sqrt{1214.16} \\
+       &= 34.844
+\end{aligned}
 $$
 
-Hitung dari data baris 2:
+Jadi jarak pada tipe data ordinal dan numerik pada d(1,2) = 23.00086 dan pada d(1,3)= 34.844 2. Binary Perhitungan jarak pada tipe data biner kita perlu menentukan simetris dan asimetrisnya terlebih dahulu, karena untuk perhitungan jarak yang simteris dan asimetris berbeda. Pada data campuran yang sekarang kita pake untuk yang tipe binary ada 3 fitur yaitu fitur gender yang simetris, lunch dan test preparation course yang asimetris.
 
-$$
-z_{1} = \frac{1 - 0}{4 - 0}
-$$
+a. d(1,2)
+  - Simetris
+  q = 0, r = 0, s = 0, t = 1 
 
-$$
-= \frac{1}{4} = 0,25
-$$
+  \[
+d = \frac{r+s}{q+r+s+t}
+    \]
+  
+    \[
+d = \frac{0+0}{0+0+0+1}
+= 0
+    \]
 
-Hasil akhir: |1 - 0.25| = 0.75
+- Asimetris
+  q = 1, r = 0, s = 1, t = 0
+    \[
+d = \frac{r+s}{q+r+s}
+    \]
 
-Lakukan hal yang sama untuk tipe data fedu
-Hasil akhir: 0,75
+        \[
+d = \frac{0+1}{1+0+1} = 0.5
+    \]
 
-###### 3. Hasil Akhir nilai gower baris 1 dan 2
+    d(1,2) = 0 + 0.5 = 0.5
 
-Nilai dari tipe data sebelumnya dijumlahkan, lalu dibagi oleh fitur yang dimiliki
+b. d(1,3)
+  - Simetris
+  q = 0, r = 0, s = 0, t = 1 
 
-$$
-= \frac{2 + 0,143 + 0,75 + 0,75}{7} = 0,520
-$$
-    
-##### Perhitungan Python
+  \[
+d = \frac{r+s}{q+r+s+t}
+    \]
+  
+    \[
+d = \frac{0+0}{0+0+0+1}
+= 0
+    \]
 
-```
-import numpy as np
+- Asimetris
+  q = 1, r = 0, s = 1, t = 1
+    \[
+d = \frac{r+s}{q+r+s}
+    \]
 
-data = df.copy()
-n = data.shape[0]
+        \[
+d = \frac{0+0}{1+0+0} = 0
+    \]
 
-numeric_cols = data.select_dtypes(include=[np.number]).columns
-categorical_cols = data.select_dtypes(exclude=[np.number]).columns
+    d(1,2) = 0 + 0 = 0
 
-for col in numeric_cols:
-   min_val = data[col].min()
-   max_val = data[col].max()
-   
-   if max_val != min_val:
-       data[col] = (data[col] - min_val) / (max_val - min_val)
-   else:
-       data[col] = 0
+    Jadi, jarak pada tipe data binary pada d(1,2) = 0.5 dan d(1,3) = 0.
 
-dist_matrix = np.zeros((n, n))
+3. Kategori Pada tipe data kategori menggunakan rumus p-m/p, dimana p adalah banyaknya fitur dan m adalah jumlah kategori apabila antara kategori data ke-1 dan ke-2 sama maka satu, dan apabila berbeda maka 0.
 
-for i in range(n):
-   for j in range(n):
-       total_dist = 0
-       valid_features = 0
-       
-       for col in data.columns:
-           xi = data.iloc[i][col]
-           xj = data.iloc[j][col]
-           
-           if pd.isna(xi) or pd.isna(xj):
-               continue
-           
-           if col in numeric_cols:
-               d = abs(xi - xj)
+d(1,2) = 1-0/1 = 1/1 = 1
 
-           else:
-               d = 0 if xi == xj else 1
-           
-           total_dist += d
-           valid_features += 1
-       
-       dist_matrix[i, j] = total_dist / valid_features
-distance_df = pd.DataFrame(dist_matrix)
+d(1,3) = 1-1/1 = 0/1 = 0
 
-print(distance_df.iloc[:5, :5])
-```
+Jadi, jarak tipe data kategori pada d(1,2) = 1 dan d(1,3) = 0
 
-Berikut adalah code yang digunakan untuk menghitung gower distance
+Untuk menentukan hasil akhirnya, yaitu jarak d(1,2) dan d(1,3) adalah dengan menjumlahkan hasil hitung jarak dari masing-masing tipe data di atas.
 
+d(1,2) = 23,00086 + 0,5 + 1 = 24,50086
 
-|  | 0 | 1 | 2 | 3 | 4 |
-| :-- | :-- | :-- | :-- | :-- | :-- |
-| 0 | 0.000000 | 0.520408 | 0.418367 | 0.561224 | 0.397959 |
-| 1 | 0.520408 | 0.000000 | 0.183673 | 0.469388 | 0.163265 |
-| 2 | 0.418367 | 0.183673 | 0.000000 | 0.571429 | 0.306122 |
-| 3 | 0.561224 | 0.469388 | 0.571429 | 0.000000 | 0.377551 |
-| 4 | 0.397959 | 0.163265 | 0.306122 | 0.377551 | 0.000000 |
+d(1,3) = 34,844 + 0 + 0 = 34,844.
 
