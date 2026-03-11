@@ -336,29 +336,30 @@ Perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 3: Untuk menghitung ja
 Proses Normalisasi pada tiap tingkatan:
 Normalisasi = r - min / max - min
 
-\[
+$$
 1 = \frac{1-1}{6-1} = \frac{0}{5} = 0
-\]
+$$
 
-\[
+$$
 2 = \frac{2-1}{6-1} = \frac{1}{5} = 0.2
-\]
+$$
 
-\[
+$$
 3 = \frac{3-1}{6-1} = \frac{2}{5} = 0.4
-\]
+$$
 
-\[
+$$
 4 = \frac{4-1}{6-1} = \frac{3}{5} = 0.6
-\]
+$$
 
-\[
+$$
 5 = \frac{5-1}{6-1} = \frac{4}{5} = 0.8
-\]
+$$
 
-\[
+$$
 6 = \frac{6-1}{6-1} = \frac{5}{5} = 1
-\]
+$$
+
 Setelah dilakukan normalisasi pada tipe data ordinal, selanjutnya ada proses perhitungan menggunakan metode Eucledien Distance, yang dihitung dengan tipe data numerik yaitu pada kolom Math Score, Reading Score dan Writing Score.
 
 | Parental Level of Education | Math Score | Reading Score | Writing Score |
@@ -392,24 +393,24 @@ a. d(1,2)
   - Simetris
   q = 0, r = 0, s = 0, t = 1 
 
-  \[
+$$
 d = \frac{r+s}{q+r+s+t}
-    \]
+$$
   
-    \[
+$$
 d = \frac{0+0}{0+0+0+1}
 = 0
-    \]
+$$
 
 - Asimetris
   q = 1, r = 0, s = 1, t = 0
-    \[
+$$
 d = \frac{r+s}{q+r+s}
-    \]
+$$
 
-        \[
+$$
 d = \frac{0+1}{1+0+1} = 0.5
-    \]
+$$
 
     d(1,2) = 0 + 0.5 = 0.5
 
@@ -417,24 +418,24 @@ b. d(1,3)
   - Simetris
   q = 0, r = 0, s = 0, t = 1 
 
-  \[
+$$
 d = \frac{r+s}{q+r+s+t}
-    \]
+$$
   
-    \[
+$$
 d = \frac{0+0}{0+0+0+1}
 = 0
-    \]
+$$
 
 - Asimetris
   q = 1, r = 0, s = 1, t = 1
-    \[
+$$
 d = \frac{r+s}{q+r+s}
-    \]
+$$
 
-        \[
+$$
 d = \frac{0+0}{1+0+0} = 0
-    \]
+$$
 
     d(1,2) = 0 + 0 = 0
 
