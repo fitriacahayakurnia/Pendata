@@ -436,9 +436,9 @@ $$
 d = \frac{0+0}{1+0+0} = 0
 $$
 
-    d(1,2) = 0 + 0 = 0
+d(1,2) = 0 + 0 = 0
 
-    Jadi, jarak pada tipe data binary pada d(1,2) = 0.5 dan d(1,3) = 0.
+Jadi, jarak pada tipe data binary pada d(1,2) = 0.5 dan d(1,3) = 0.
 
 3. Kategori Pada tipe data kategori menggunakan rumus p-m/p, dimana p adalah banyaknya fitur dan m adalah jumlah kategori apabila antara kategori data ke-1 dan ke-2 sama maka satu, dan apabila berbeda maka 0.
 
