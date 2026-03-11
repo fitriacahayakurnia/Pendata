@@ -267,7 +267,7 @@ Metode ini banyak digunakan dalam:
 
 
 ### 7. Pengukuran Jarak pada Dataset Iris Flowers
-Mengukur jarak dataset Iris
+#### 1). Mengukur jarak dataset Tipe Numerik (Iris Flowers)
 Pada dataset Iris diatas, tipe data yang dimiliki adalah bernilai numerik, karena hal itu penghitungan jarak untuk tipe data Iris kali ini akan digunakan metode Eucledian Distance
 ##### Perhitungan manual 
 Contoh perhitungan secara manual pada baris 2 dan 3 dengan kolom 1:
