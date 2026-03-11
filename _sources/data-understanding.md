@@ -320,10 +320,9 @@ Output yang dihasilkan:
 3 perhitungan diatas, memiliki kesamaan nilai, artinya perhitungan yang dilakukan sudah dilakukan secara benar dan urut
 
 #### 2). Mengukur jarak dataset Tipe data campuran
-Dataset yang digunakan untuk contoh kali ini adalah dataset berjudu; 'Student Alcohol Consumption'. Dimana dataset ini memiliki sekitar 30 fitur di dalam nya. Namun pada penugasan kali ini, kami menggunakan hanya 7 fitur diantaranya yaitu fitur sex, age, Medu, Fedu, Fjob, activities, schoolsup. Dimana tipe data Nominal dimiliki oleh [sex, fjob, activities, schoolsup] lalu tipe data numerik [Age] terakhir adalah tipe data ordinal [medu, fedu]. Dilakukan perhitungan jarak dengan metode Gower 
 
 #### Perhitungan
-Perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 3: Untuk menghitung jarak pada data campuran, kita perlu menghitungnya pada masing-masing tipe data yang kemudian hasil akhirnya dijumlahkan.
+Perhitungan manual antara baris 1 dan 2, lalu baris 1 dan 3: Untuk menghitung jarak pada data campuran, kita perlu menghitungnya pada masing-masing tipe data yang kemudian hasil akhirnya dijumlahkan. Dataset yang digunakan bersumser dari kaggle (https://www.kaggle.com/datasets/spscientist/students-performance-in-exams).
 
 1. Ordinal dan Numerik Pada kolom parental level of education merupakan fitur dengan tipe ordinal. Pada tipe data ordinal ini sebelum dapat menghitung jarak pada baris 1 dan 2, lalu baris 1 dan 3 perlu melakukan normalisasi, yang setelah dinormalisasi nanti dapat dihitung jaraknya dengan tipe data numerik menggunakan metode Eucledien Distance.
 - Some high school = 1
